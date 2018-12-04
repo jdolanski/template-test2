@@ -1,6 +1,6 @@
 // Exported from:        http://Jans-MacBook-Pro.local:5516/#/templates/Release70475d98571843b683feeb04c0a017db/releasefile
 // XL Release version:   8.5.0-rc.3
-// Date created:         Tue Dec 04 13:16:40 CET 2018
+// Date created:         Tue Dec 04 13:20:34 CET 2018
 
 xlr {
   template('template0') {
@@ -14,9 +14,7 @@ xlr {
       phase('New Phase') {
         tasks {
           manual('t1') {
-            failureHandler 'test == False'
-            taskFailureHandlerEnabled true
-            taskRecoverOp com.xebialabs.xlrelease.domain.recover.TaskRecoverOp.RUN_SCRIPT
+            
           }
           createRelease('t2') {
             facets {
@@ -69,24 +67,7 @@ xlr {
                 version 'v1'
               }
             }
-          }
-          custom('ab]') {
-            facets {
-              facet {
-                type 'udm.DeploymentTaskFacet'
-                applicationId 'Configuration/environmentManagement/Applicationba6b760ee0f546e1bf765d8749d41a61'
-                environmentId 'Configuration/environmentManagement/Environmentac5cf5ad9fd04556b062803631d04136'
-                version 'dfas'
-              }
-            }
-            delayDuringBlackout true
-            taskFailureHandlerEnabled true
-            taskRecoverOp com.xebialabs.xlrelease.domain.recover.TaskRecoverOp.SKIP_TASK
             checkAttributes true
-            script {
-              type 'checkmarx.checkOsaCompliance'
-              
-            }
           }
         }
       }
